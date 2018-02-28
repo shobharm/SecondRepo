@@ -1,0 +1,7 @@
+
+public interface Interface1 {
+	//void show();
+	 default void print() {
+			System.out.println("Inside interface 2");
+		}
+}

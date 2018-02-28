@@ -1,0 +1,20 @@
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+
+
+public class TestClass implements Interface1,Interface2{
+	
+	public static void main(String[] args) {
+		
+	System.out.println("Test");	
+	TestClass tc= new TestClass();
+	tc.print();
+
+}
+
+	public void print() {
+		System.out.println("Test");	
+	}
+	
+}

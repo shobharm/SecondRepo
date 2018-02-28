@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="TestSpringBootNew-1"/>
+<aop-project name="snmpApplication"/>
+<aop-project name="TestSpringBoot-1"/>
+<aop-project name="MongoDBDemo"/>
+<aop-project name="ContainerSpawning"/>
+<aop-project name="SpringSendingMail"/>
+<aop-project name="MongoWithSpring"/>
+<aop-project name="HelloWorld"/>
+<aop-project name="TestSpringBoot"/>
+<aop-project name="TestSpringBootJSP"/>
+<aop-project name="snmp"/>
+<aop-project name="TestSpringBootJSP-2"/>
+<aop-project name="SnmpApplication"/>
+<aop-project name="nmapApplication"/>
+<aop-project name="SimpleMailSender"/>
+<aop-project name="TestSpringBootJS"/>
+<aop-project name="SpringBootApplicationTest"/>
+<aop-project name="Trapsender"/>
+<aop-project name="SpringBootRestExample"/>
+<aop-project name="SpringEurekaMaster"/>
+</aop-reference-model>

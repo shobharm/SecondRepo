@@ -1,0 +1,25 @@
+package com.example.repo;
+
+public class test extends A{
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	
+	public String test(int a, int b) {
+	return null;	
+	}
+	
+	
+
+}
+
+
+class A{
+	
+	public String test(int a,int b) {
+		return null;
+	}
+	
+}

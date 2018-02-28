@@ -1,0 +1,168 @@
+package com.nextgen.snmp;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
+import org.snmp4j.CommandResponder;
+import org.snmp4j.CommandResponderEvent;
+import org.snmp4j.CommunityTarget;
+import org.snmp4j.MessageDispatcher;
+import org.snmp4j.MessageDispatcherImpl;
+import org.snmp4j.PDU;
+import org.snmp4j.Snmp;
+import org.snmp4j.mp.MPv1;
+import org.snmp4j.mp.MPv2c;
+import org.snmp4j.security.Priv3DES;
+import org.snmp4j.security.SecurityProtocols;
+import org.snmp4j.smi.OctetString;
+import org.snmp4j.smi.TcpAddress;
+import org.snmp4j.smi.TransportIpAddress;
+import org.snmp4j.smi.UdpAddress;
+import org.snmp4j.transport.AbstractTransportMapping;
+import org.snmp4j.transport.DefaultTcpTransportMapping;
+import org.snmp4j.transport.DefaultUdpTransportMapping;
+import org.snmp4j.util.MultiThreadedMessageDispatcher;
+import org.snmp4j.util.ThreadPool;
+
+public class TrapReceiver implements CommandResponder{
+	 private final String USER_AGENT = "Mozilla/5.0";
+	 private PDU PDU_PEV=null;
+	public static void main(String[] args) {
+	TrapReceiver snmp4jTrapReceiver = new TrapReceiver();
+    try {
+            snmp4jTrapReceiver.listen(new UdpAddress("10.132.32.211/162"));
+    } catch (IOException e) {
+            e.printStackTrace();
+    }
+	}
+	
+	public synchronized void listen(TransportIpAddress address)
+            throws IOException {
+    AbstractTransportMapping transport;
+    if (address instanceof TcpAddress) {
+            transport = new DefaultTcpTransportMapping((TcpAddress) address);
+    } else {
+            transport = new DefaultUdpTransportMapping((UdpAddress) address);
+    }
+
+    ThreadPool threadPool = ThreadPool.create("DispatcherPool", 10);
+    MessageDispatcher mDispathcher = new MultiThreadedMessageDispatcher(
+                    threadPool, new MessageDispatcherImpl());
+
+    // add message processing models
+    mDispathcher.addMessageProcessingModel(new MPv1());
+    mDispathcher.addMessageProcessingModel(new MPv2c());
+
+    // add all security protocols
+    SecurityProtocols.getInstance().addDefaultProtocols();
+    SecurityProtocols.getInstance().addPrivacyProtocol(new Priv3DES());
+
+    // Create Target
+    CommunityTarget target = new CommunityTarget();
+    target.setCommunity(new OctetString("public"));
+
+    Snmp snmp = new Snmp(mDispathcher, transport);
+    snmp.addCommandResponder(this);
+
+    transport.listen();
+    System.out.println("Listening on " + address);
+
+    try {
+            this.wait();
+    } catch (InterruptedException ex) {
+            Thread.currentThread().interrupt();
+    }
+}	
+	
+	/**
+     * This method will be called whenever a pdu is received on the given port
+     * specified in the listen() method
+     */
+    public synchronized void processPdu(CommandResponderEvent cmdRespEvent) {
+            System.out.println("Received PDU...");
+            PDU pdu = cmdRespEvent.getPDU();
+            System.out.println("new PDU..."+pdu);
+            if (pdu != null) {
+            	 System.out.println("inside null check new PDU..."+pdu);
+            	 System.out.println("inside null check OLD PDU..."+PDU_PEV);
+            	if(PDU_PEV==null) {
+            		sendEmail(pdu);
+            	
+            	}else if(!PDU_PEV.toString().equals(pdu.toString())) {
+            		System.out.println("Inside else");
+            		sendEmail(pdu);
+            	}
+                    
+                 /*String mailBody=pdu.getVariableBindings().toString();
+                 mailBody = mailBody.substring(1, mailBody.length()-1);
+                 mailBody = mailBody.replaceAll(" ", "");
+                String[] variableBindingArray=mailBody.split(",");
+             	String[] trapOIDArray=variableBindingArray[1].split("=");
+             	String[] ipAddressArray=variableBindingArray[2].split("=");
+             	String body="";
+             	String subject="";
+             	//if(trapOIDArray[1].trim().equals("1.3.6.1.4.1.39067.100.0.8")) {
+             	body= "Hi,_This is to inform you that there was password breach for the device with IP address "+ipAddressArray[1]+"._Regards_Admin";
+             	subject="Password breach intimation";	
+             //	}
+             	
+             	mailBody=body+"-"+subject;
+             	mailBody=mailBody.replaceAll(" ", "%20");
+             	//mailBody=mailBody.replaceAll("\\r\\n", "%0D%0A");
+             	
+             	System.out.println("mail body"+mailBody);
+					try {
+						obj = new URL(url+"/"+mailBody);
+					
+           	        HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+
+           	        // optional default is GET
+           	        con.setRequestMethod("GET");
+
+           	        //add request header
+           	       con.setRequestProperty("User-Agent", USER_AGENT);
+
+           	        int responseCode = con.getResponseCode();
+           	        System.out.println("\nSending 'GET' request to URL : " + url);
+           	        System.out.println("Response Code : " + responseCode);
+
+           	         in = new BufferedReader(
+           	                new InputStreamReader(con.getInputStream()));
+           	        String inputLine;
+           	        StringBuffer response = new StringBuffer();
+
+           	        while ((inputLine = in.readLine()) != null) {
+           	            response.append(inputLine);
+           	        }
+           	       
+           	     System.out.println(response.toString());
+        	        
+					} catch (Exception e) {
+						e.printStackTrace();
+					}finally {
+						 try {
+							in.close();
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
+					}*/
+           	      
+                	   
+                   }
+                    }
+    public void sendEmail(PDU pdu) {
+    	 String url = "http://localhost:8036/sendmail";
+    	 URL obj;
+   	     BufferedReader in =null;
+            
+   	     System.out.println("Trap Type = " + pdu.getType());
+         System.out.println("Variables = " + pdu.getVariableBindings());
+         PDU_PEV=pdu;
+    }
+            }
+    
+
+

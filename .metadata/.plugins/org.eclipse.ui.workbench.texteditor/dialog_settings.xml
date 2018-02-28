@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item value="false" key="isRegEx"/>
+		<item value="OldTime" key="selection"/>
+		<item value="false" key="casesensitive"/>
+		<item value="true" key="incremental"/>
+		<item value="true" key="wrap"/>
+		<item value="true" key="wholeword"/>
+		<list key="findhistory">
+			<item value="OldTime"/>
+			<item value="date"/>
+			<item value="processPdu"/>
+			<item value="PDU_PEV"/>
+			<item value="pdu"/>
+			<item value="getpdu"/>
+			<item value="type"/>
+			<item value="trap type"/>
+		</list>
+		<list key="replacehistory">
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item value="362" key="DIALOG_WIDTH"/>
+		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+		<item value="492" key="DIALOG_HEIGHT"/>
+		<item value="794" key="DIALOG_X_ORIGIN"/>
+		<item value="85" key="DIALOG_Y_ORIGIN"/>
+	</section>
+</section>

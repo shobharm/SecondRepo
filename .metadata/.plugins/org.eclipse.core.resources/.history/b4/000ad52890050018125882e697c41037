@@ -1,0 +1,59 @@
+package com.example.TestApp;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.repo.Mod;
+
+
+
+
+
+@RestController
+public class HelloController {
+/*@Autowired
+	Repo repo;*/
+	@RequestMapping("/")
+	public void sayHello(){
+//		final Configuration config= new Configuration();
+		
+	/*MongoClient client = new MongoClient("", 27017);
+	
+		MongoDatabase db= client.getDatabase("video");
+		MongoCollection<Document> coll=db.getCollection("testMongo");
+		System.out.println("Collections"+coll);*/
+		
+		/*Document doc= new Document("name","Shobha")
+				.append("Comapny", "TCS")
+				.append("YOE", 5);
+		
+		coll.insertOne(doc);
+		*/
+		/*List<Document> docList= coll.find().into(new ArrayList<Document>());
+		docList.forEach(System.out::println);*/
+		
+		/*System.out.println("inside controller");
+		
+		model.setName("Shobha Mahesh");
+		System.out.println("step1");
+
+		model.setCompany("TCS");
+		System.out.println("step2");
+
+		model.setExp(5);
+		System.out.println("step3");*/
+	//	System.out.println("step middle"+repo);
+	//	repo.save(model);
+		System.out.println("step4");
+		
+		
+		//return "Index";
+		
+		
+		
+	}
+	
+	
+	
+}

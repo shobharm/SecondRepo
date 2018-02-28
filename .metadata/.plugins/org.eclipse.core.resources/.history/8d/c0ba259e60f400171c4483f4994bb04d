@@ -1,0 +1,57 @@
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+
+
+public class TestClass{
+	
+	public static void main(String[] args) {
+		
+		LocalTime d = LocalTime.now();
+		DateTimeFormatter format= DateTimeFormatter.ISO_DATE_TIME;
+		System.out.println(d);
+		d.format(format);
+/*		LocalDateTime l= LocalDateTime.parse(d., format)
+*/		System.out.println(d);
+	}
+		
+		
+		
+		
+		
+		
+		
+		
+		/*TestClass tc=new TestClass();
+		tc.show();
+		tc.show1();
+		tc.print();
+		
+	}
+    
+	@Override
+	public void show() {
+		System.out.println("inside class");
+		
+	}
+	
+	public void show1() {
+		TestingNewInterface ti=new TestClass();
+		ti.print();
+		boolean t=ti.equals(ti);
+		System.out.println("inside class show3"+t);
+		
+	}
+
+	@Override
+	public void print() {
+		System.out.println("inside class print");
+		
+	}
+
+	public void print() {
+		// TODO Auto-generated method stub
+		Interface2.super.print();
+	}*/
+
+}

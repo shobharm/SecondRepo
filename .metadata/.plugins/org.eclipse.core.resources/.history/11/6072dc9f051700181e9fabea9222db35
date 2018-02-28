@@ -1,0 +1,30 @@
+package com.example.TestApp;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+
+
+public class TestSpringBootJsp2ApplicationTests {
+
+	public static void main(String args[]) {
+		
+		BufferedReader br= new BufferedReader(new InputStreamReader(System.in));
+		
+		try {
+			String temp=br.readLine();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+	}
+
+}

@@ -1,0 +1,67 @@
+package com.example.repo;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class test extends A{
+
+	public test(){
+		System.out.println("I am in test");
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-genersopated method stub
+		System.out.println();
+		List<Integer> test=new ArrayList<Integer>();
+		List<Integer> temp=new ArrayList<Integer>();
+		List<Integer> dup=new ArrayList<Integer>();
+		test.add(1);
+		test.add(1);
+		test.add(5);
+		test.add(6);
+		test.add(7);
+		test.add(8);
+		test.add(8);
+		for(int a:test) {
+			if(temp.contains(a)) {
+				dup.add(a);
+			}else {
+				temp.add(a);
+			}
+		}
+	//	C c=new C();
+		
+	}
+	
+	
+	
+	public String test(int a, int b) {
+	return null;	
+	}
+	
+	
+
+}
+
+
+class A extends C{
+	public A(){
+		System.out.println("I am in A");
+	}
+	public String test(int a,int b) {
+		return null;
+	}
+	
+}
+
+class C{
+	
+	public C(){
+		System.out.println("I am in C");
+	}
+	
+	public String test(int a,int b) {
+		return null;
+	}
+	
+}

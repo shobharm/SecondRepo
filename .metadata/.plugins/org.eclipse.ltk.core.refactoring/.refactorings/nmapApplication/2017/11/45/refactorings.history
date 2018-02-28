@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;TestIO.java&apos; to &apos;TestSpringBootJS/src/main/java/com.example.TestApp&apos;&#x0A;- Original project: &apos;nmapApplication&apos;&#x0A;- Destination element: &apos;TestSpringBootJS/src/main/java/com.example.TestApp&apos;&#x0A;- Original element: &apos;com.example.TestApp.TestIO.java&apos;" description="Copy compilation unit" destination="=TestSpringBootJS/src\/main\/java&lt;com.example.TestApp" element1="/src\/main\/java&lt;com.example.TestApp{TestIO.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1510206668592" units="1" version="1.0"/>
+</session>

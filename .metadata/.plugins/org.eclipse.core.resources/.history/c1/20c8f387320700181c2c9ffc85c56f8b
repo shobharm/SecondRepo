@@ -1,0 +1,28 @@
+package com.example.TestApp.controller;
+
+import java.util.List;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.example.TestApp.repository.TestRepository;
+import com.example.TestApp.model.TestModel;
+
+@Controller
+public class TestController {
+	private TestController testController;
+	public TestController(TestController testController) {
+		this.testController= testController;
+	}
+	
+	@RequestMapping("/")
+	public List<TestModel> getAllRecords(TestRepository testRepository) {
+		
+		
+		return testRepository.findAll();
+		
+		
+		
+	}
+
+}

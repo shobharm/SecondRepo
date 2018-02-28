@@ -1,0 +1,26 @@
+package com.example.repo;
+
+public class test extends A{
+final static int A=0;
+	public static void main(String[] args) {
+		// TODO Auto-genersopated method stub
+		System.out.println(A);
+
+	}
+	
+	public String test(int a, int b) {
+	return null;	
+	}
+	
+	
+
+}
+
+
+class A{
+	
+	public String test(int a,int b) {
+		return null;
+	}
+	
+}

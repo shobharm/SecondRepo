@@ -1,0 +1,10 @@
+
+public interface TestingNewInterface {
+void show();
+default void print() {
+	System.out.println("Inside interface 1");
+}
+static boolean equal() {
+	return true;
+}
+}

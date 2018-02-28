@@ -1,0 +1,133 @@
+package com.example.repo;
+
+/*public class test{
+	
+	test t=null;
+	private test() {
+		t=new test();
+	}
+	
+	
+	
+	
+	
+}
+*/
+
+
+public class test {
+ 
+    private static test myObj;
+     
+    
+     
+    private test(){
+    	
+    }
+     
+    public static test getInstance(){
+    	if(myObj==null) {
+       	 myObj = new test();
+       	return myObj;	}
+       	else
+       	return	myObj;
+		
+    }
+     
+    public void testMe(){
+        System.out.println("Hey.... it is working!!!");
+    }
+     
+    public static void main(String a[]) throws Throwable{
+        test ms = getInstance();
+        ms.testMe();
+        test ms2=getInstance();
+        ms2.finalize();
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*import java.util.ArrayList;
+import java.util.List;
+
+public class test extends A{
+
+	public test(){
+		System.out.println("I am in test");
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-genersopated method stub
+		System.out.println();
+		List<Integer> test=new ArrayList<Integer>();
+		List<Integer> temp=new ArrayList<Integer>();
+		List<Integer> dup=new ArrayList<Integer>();
+		test.add(1);
+		test.add(1);
+		test.add(5);
+		test.add(6);
+		test.add(7);
+		test.add(8);
+		test.add(8);
+		for(int a:test) {
+			if(temp.contains(a)) {
+				if(!dup.contains(a))
+				dup.add(a);
+			}else {
+				temp.add(a);
+			}
+		}
+	System.out.println("duplicate"+dup);
+	System.out.println("temp"+temp);
+		
+	}
+	
+	
+	
+	public String test(int a, int b) {
+	return null;	
+	}
+	
+	
+
+}
+
+
+class A extends C{
+	public A(){
+		System.out.println("I am in A");
+	}
+	public String test(int a,int b) {
+		return null;
+	}
+	
+}
+
+class C{
+	
+	public C(){
+		System.out.println("I am in C");
+	}
+	
+	public String test(int a,int b) {
+		return null;
+	}
+	
+}
+*/

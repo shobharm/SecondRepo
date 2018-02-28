@@ -1,0 +1,12 @@
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+
+
+public class TestClass implements Interface1{
+	
+	public static void main(String[] args) {
+		
+	System.out.println("Test");	
+
+}
